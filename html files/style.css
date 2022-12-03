@@ -90,3 +90,18 @@ p{
 .nav-link:hover{
     color: greenyellow;
 }
+
+th {
+    border: 2px solid black;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    background: black
+}
+
+td {
+    border: 2px solid black;
+    text-align: center;
+    padding: 10px;
+    background: white;
+  }

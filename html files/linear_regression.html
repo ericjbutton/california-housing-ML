@@ -39,7 +39,6 @@
                   ML Models
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="random_forest.html">Random Forest</a>
                   <a class="dropdown-item" href="logistic.html">Logistic Regression </a>
                   <a class="dropdown-item" href="linear_regression.html">Linear Regression</a>
                   
@@ -61,15 +60,141 @@
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12">
             <div class="jumbotron">
-              <h1><strong>Linear Regression Algorithm</strong></h1>
-              <center> <img src="image 1" height="300" width="400"></center> 
-              <p><strong>Introduction</strong></p>
-              <p>our description goes here for the Introduction part</p>
+              <h1><strong>Multiple Linear Regression</strong></h1>
               
+              <p><strong>Base Linear Regression Model</strong></p>
+              <p>The Base Model serves as our starting point for evaluating the various model optimization methods. The only preprocessing steps taken on our data for the base model were label encoding
+                categorical variables (Ocean Proximity) and using the Standard Scaler. The default hyperparameters were used for Train_Test_Split and Linear Regression.</p>
               
-                <center><img src="image2" alt="LR image1"></center>
+              <center><table>
+                <th colspan="2">Linear Regression</th>
+                <tr>
+                  <td><center>Training Score</center></td>
+                  <td>0.6387324933349059</td>
+                </tr>
+                <tr>
+                  <td><center>Testing Score</center></td>
+                  <td>0.653698716213917</td>
+                </tr>
+              </table></center>
+              <!-- <center> <img src="../Images/basemodelresidualplot.png" height="300" width="400"></center> -->
+              <p></p>
+              <p>The R-Squared of 65% serves as our starting point to which we will attempt to further optimize the model. Interestingly, our model actually performs better on the 
+                testing data, than training data. If we were to feed our model more data or manipulate the split, however; we would not expect this to continue.
               </p>
-              <p>our description for the second image goes here</p>
+
+              <p><strong>Lasso Regression Model</strong></p>
+              <p>Our first attempt at optimization involves using a Lasso Regression. Due to the high number of features and multicollinearity with our data, the Lasso Regression would provide
+                automated feature selection which we expect to improve accuracy.
+              </p>
+              
+              <center><table>
+                <th colspan="2">Lasso</th>
+                <tr>
+                  <td><center>Training Score</center></td>
+                  <td>0.6387324859582684</td>
+                </tr>
+                <tr>
+                  <td><center>Testing Score</center></td>
+                  <td>0.6536976224112978</td>
+                </tr>
+              </table></center>
+              <!-- <center> <img src="../Images/lassoresidualplot.png" height="300" width="400"></center> -->
+              <p></p>
+              <p>The Lasso Regression ultimately gives nearly identical results to the Linear Regression...
+              </p>
+              <p><strong>Ridge Regression Model</strong></p>
+              <p>Our next attempt at optimization involves using a Ridge Regression. This will function similarly to the Lasso Regression by applying a penalty factor, however; Ridge will not set coefficients
+                to zero, while Lasso will.
+              </p>
+              
+              <center><table>
+                <th colspan="2">Ridge</th>
+                <tr>
+                  <td><center>Training Score</center></td>
+                  <td>0.638732387055294</td>
+                </tr>
+                <tr>
+                  <td><center>Testing Score</center></td>
+                  <td>0.6536977532921333</td>
+                </tr>
+              </table></center>
+              <!-- <center> <img src="../Images/ridgeresidualplot.png" height="300" width="400"></center> -->
+              <p></p>
+              <p>Again, the Ridge Regression ultimately gives nearly identical results to the Linear Regression and Lasso Regression, performing just slightly better.
+              </p>
+              <p><strong>Elastic Net Regression Model</strong></p>
+              <p>Our final attempt at optimizing using a regularization technique is by using Elastic Net. This uses both the regularization of Ridge and Lasso. 
+              </p>
+              
+              <center><table>
+                <th colspan="2">Elastic Net</th>
+                <tr>
+                  <td><center>Training Score</center></td>
+                  <td>0.5477983685738015</td>
+                </tr>
+                <tr>
+                  <td><center>Testing Score</center></td>
+                  <td>0.5590469059783605
+                  </td>
+                </tr>
+              </table></center>
+              <!-- <center> <img src="../Images/elasticnetresidualplot.png" height="300" width="400"></center> -->
+              <p></p>
+              <p>This ultimately gives us worse performance than any of the previous models.
+              </p>
+              <p><strong>Random Forest Regressor Model</strong></p>
+              <p>For our final attempt at optimization, we use a Random Forest Regressor. With limited success using regularization to improve our model's accuracy, 
+                Random Forest can potentially improve through building multiple decision trees. Our first attempt using the Random Forest Regressor involves no changes to default hyperparameters.
+              </p>
+              
+              <center><table>
+                <th colspan="2">Random Forest Regressor</th>
+                <tr>
+                  <td><center>Training Score</center></td>
+                  <td>0.9743170985213362</td>
+                </tr>
+                <tr>
+                  <td><center>Testing Score</center></td>
+                  <td>0.8316238857990677
+                  </td>
+                </tr>
+              </table></center>
+              <!-- <center> <img src="../Images/elasticnetresidualplot.png" height="300" width="400"></center> -->
+              <p></p>
+              <p>Based on our training score significantly outperforming our testing score, we conclude our model is overfit. This overfitting is because
+                we do not have enough data and the model has become too specific with each decision tree being too deep. To correct this, we tune the max_depth hyperparameter.
+              We will start by setting a max_depth = 5.</p>
+              
+              <center><table>
+                <th colspan="2">Random Forest Regressor (max_depth = 5)</th>
+                <tr>
+                  <td><center>Training Score</center></td>
+                  <td>0.6587947238892986</td>
+                </tr>
+                <tr>
+                  <td><center>Testing Score</center></td>
+                  <td>0.6623595251381666
+                  </td>
+                </tr>
+              </table></center>
+              <p>With the adjustment to max_depth, this solves our overfitting problem, but reduces the model's accuracy. To attempt to balance overfitting and model accuracy 
+                we will now set max_depth = 7
+              </p>
+              <center><table>
+                <th colspan="2">Random Forest Regressor (max_depth = 7)</th>
+                <tr>
+                  <td><center>Training Score</center></td>
+                  <td>0.7505508565310899</td>
+                </tr>
+                <tr>
+                  <td><center>Testing Score</center></td>
+                  <td>0.7345784196197869
+                  </td>
+                </tr>
+              </table></center>
+
+              
 
         </div>
     </div>
