@@ -108,10 +108,14 @@
                 </tr>
               </table></center>
               <p></p>
-              <p><strong>Preprocessing...</strong></p>
-              <p><strong>Collinearity...</strong></p>
+              <p><strong>Preprocessing</strong></p>
+              <p>Prior to running our models, the same preprocessing steps were taken. This included ensuring our data did not have null, missing, or
+                duplicated values. We then label encoded the categorical values in our dataset (oceanProximity), and applied the standard scaler. We used the
+                default train-test split of 75% training, 25% testing.
+              </p>
+              <p><strong>Collinearity</strong></p>
               <p>A collinearity arises in an instance when two or more variables are highly correlated.
-                when input features in the regression model are highly correlated to each other, it can hurt the interpretability of the modelas the regrssion coefficients subsequently are not unique and have influences from other features. collinearity may also create an overfitting problem.
+                When input features in the regression model are highly correlated to each other, it can hurt the interpretability of the models and the regression coefficients subsequently are not unique and have influences from other features. Collinearity may also create an overfitting problem.
                 In order to have a more interpretable model, rule of thumb is that we should avoid features that have a very high (R² > 0.8) being contained in the features.
                 
                 We noticed that the following features are highly correlated with each other: 'population', 'bedrooms_per_household', and 'population_per_household'.
@@ -121,9 +125,13 @@
                 We would need to either drop some of these variables or find a way to make them less correlated. This is where PCA comes in to reduce the dimensions and noises that may contain collinear input variables.</p>
               
               <p><center> <img src="../Images/Seaborn.png" height="400" width="775"></center></p>
-              <p><center> <img src="../Images/heatmapofcorrelation.png" height="400" width="775"></center></p>
-              <p><center> <img src="../Images/Log_Reg_Correlation.png" height="400" width="775"></center></p>
-              <p>Target Variable...</p>
+              <p><center> <img src="../Images/heatmapofcorrelation.png" height="350" width="775"></center></p>
+              <p><center> <img src="../Images/Log_Reg_Correlation.png" height="250" width="775"></center></p>
+              <p><strong>Target Variable</strong></p>
+              <p>Our target variable for all models is House Median Value. For our linear regression, our models attempt to predict the House Median Value,
+                and for our Logistic Regression model, we use three bins that our models attempt to predict.
+              </p>
+              <p><center><strong>House Median Values by Coordinate</strong></center></p>
               <p> <center> <img src="../Images/LongitudevLatitude.png"></center></p>
 
               
