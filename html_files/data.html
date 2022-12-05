@@ -19,42 +19,46 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(4, 82, 39)">
-      <img src="../Images/california-flag-acegif-1.gif" height="45" width="55">
-        <a class="navbar-brand" href="../index.html">ML California Housing</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>      
-      
-        <div class="collapse navbar-collapse" id="navbarColor01">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="../index.html"> Home <span class="sr-only">(current)</span></a>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <img src="../Images/california-flag-acegif-1.gif" height="45" width="55">
+      <a class="navbar-brand" href="../index.html">ML California Housing</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>      
+
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../index.html"> Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="data.html">Data</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="data.html">Data</a>
-              </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  ML Models
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="logistic.html">Logistic Regression </a>
-                  <a class="dropdown-item" href="linear_regression.html">Linear Regression</a>
-                  
-                </div>
-              </li>
-          </ul>
-          </div>
-        </nav>
-  <div class="container">
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ML Models
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="logistic.html">Logistic Regression </a>
+                <a class="dropdown-item" href="linear_regression.html">Linear Regression</a>
+                
+              </div>
+            </li>
+            <div class="custom-control custom-switch mr-5">
+              <input type="checkbox" class="custom-control-input" id="selector">
+              <label class="custom-control-label" for="selector">Dark Mode</label>
+            </div>
+        </ul>
+        </div>
+      </nav>
+<div class="container">
 
 
   
       <!-- Row 1 -->
       <div class="row">
         <div class="col-12 col-sm-12 col-md-12">
-            <div class="jumbotron" style="background-color: rgb(253, 221, 221)">
+            <div class="jumbotron">
               <h1><strong>Data</strong></h1>
               <p>The dataset used comes from Pace, R. Kelley, and Ronald Barry, "Sparse Spatial Autoregressions," Statistics and Probability Letters, Volume 33, Number 3, May 5 1997, p. 291-297.
                 This data contains 9 features outlined below with the data being collected from the 1990 census. 
@@ -115,5 +119,16 @@
     </div>
       </div>
       </div>
+      <script>
+        $(document).ready(function(){
+          $("#selector").change(function(){
+            $("body").toggleClass("bg-secondary");
+            $(".custom-control-label").toggleClass("text-white");
+            $("h1").toggleClass("text-white");
+            $("p").toggleClass("text-white");
+            $(".jumbotron").toggleClass("bg-dark");
+          });
+        });
+      </script>
 </body>
 </html>

@@ -73,7 +73,7 @@ p{
 
 .navbar{
     text-align: right;
-    background-color: black;
+    background-color: rgb(4, 82, 39);
     color: rgb(51, 131, 250);
     font-size: xx-large;  
 }
@@ -105,3 +105,14 @@ td {
     padding: 10px;
     background: white;
   }
+
+  .custom-control{
+    text-align: center;
+    color: yellow;
+    font-size: small
+  }
+
+  .jumbotron{
+    background-color: rgb(253, 221, 221)
+  }
+  
