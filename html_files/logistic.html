@@ -87,31 +87,166 @@
               
               <center><img src="../Images/Log_Reg_training_testing_score.PNG" alt="LR image1" height="300" width="600"></center>
               </p>
-
-
-              <p>precision is a measure of the reliability of a positive classiﬁcation</p>
-              <!-- next segment -->
-
-              <p><strong>Lasso Regression Model</strong></p>
-              <p>Our first attempt at optimization involves using a Lasso Regression. Due to the high number of features and multicollinearity with our data, the Lasso Regression would provide
-                automated feature selection which we expect to improve accuracy.
-              </p>
-              
               <center><table>
-                <th colspan="2">Lasso</th>
+                <th colspan="2">Base Model</th>
                 <tr>
                   <td><center>Training Score</center></td>
-                  <td>0.6387324859582684</td>
+                  <td>0.8091258188389429</td>
                 </tr>
                 <tr>
                   <td><center>Testing Score</center></td>
-                  <td>0.6536976224112978</td>
+                  <td>0.8145973154362416</td>
                 </tr>
               </table></center>
-              <!-- <center> <img src="../Images/lassoresidualplot.png" height="300" width="400"></center> -->
-              <p></p>
-              <p>The Lasso Regression ultimately gives nearly identical results to the Linear Regression...
+
+              <p>Out of all the predictions made of a positive classification for Median house value falling in each of the price range as shown above, our model had a precision of 78% predicting the median house value greater than $400,000. whereas 60% precision was seen predicting a median house value between $250,000-400,000. Lastly, 85% precision was seen predicting a median house value of less than $250,000. This validates our observation shown in the Longitude and Latitude plots in the Data section.</p>
+              <!-- next segment -->
+
+              <p><strong>Model Optimizations</strong></p>
+              <p>Given the high Testing Data Score of 81.46% from our base model, it is safe to conclude our model would do a great job generalizing the findings for the new input data. However, we wanted to push the envelope in achieving a higher test score without overfitting or underfitting our model. 3 model optimization techniques were deployed in an attempt to improve the testing score from our current standing.
               </p>
+              
+              <p>1. Random Forest Classification</p>
+              <center><table>
+              <th>Scores</th>
+              <th>Random Forest Classification (max_depth = 10)</th>
+                <th>(max_depth = 5)</th>
+                <th>Default</th>
+            
+                <tr>
+                  <td><center>Training Score</center></td>
+                  <td>0.9106994955199157</td>
+                  <td>0.8138694375423537</td>
+                  <td>1.0</td>
+                  
+                </tr>
+                <tr>
+                  <td><center>Testing Score</center></td>
+                  <td>0.8573825503355704</td>
+                  <td>0.8048098434004475</td>
+                  <td>0.8726230425055929</td>
+                  
+                </tr>
+                
+                <tr>
+                  <td><center>Delta</center></td>
+                  <td>0.0533169451843450</td>
+                  <td>0.0090595941419059</td>
+                  <td>0.1273769574944080</td>
+                  
+                </tr>
+
+                </table></center>
+                  
+              <p></p>
+          
+            
+              <p></p>
+              <p>In an effort to improve the predictive accuracy and our testing score simultaneously controlling over-fitting, we have deployed the Random Forest Classifier. As shown in the table above, as the depth of our model increases, we our model begins to overfit. At Default, the trees perfectly predicts all of the train data, however, it fails to generalize the findings for new data
+              </p>
+
+              <p>2. Feature Selection with Random Forests</p>
+
+              <center><table>
+                <th>Scores</th>
+                <th>Random Forest Classification (max_depth = 10)</th>
+                  <th>(max_depth = 5)</th>
+                  <th>Default</th>
+              
+                  <tr>
+                    <td><center>Training Score</center></td>
+                    <td>0.9030931871574002</td>
+                    <td>0.8179979117723832</td>
+                    <td>1.0</td>
+                    
+                  </tr>
+                  <tr>
+                    <td><center>Testing Score</center></td>
+                    <td>0.8535917009199452</td>
+                    <td>0.816793893129771</td>
+                    <td>0.8651399491094147</td>
+                    
+                  </tr>
+                  
+                  <tr>
+                    <td><center>Delta</center></td>
+                    <td>0.0495014862374550</td>
+                    <td>0.0012040186426119</td>
+                    <td>0.1348600508905860</td>
+                    
+                  </tr>
+  
+                  </table></center>
+
+
+              <p></p>
+                <p>Second approach to model optimization was to find feature importance or coefficients of our model in order to remove noise or features with less significance. We can see a slight decrease in the discrepancy between the score of the training set and that of the testing set</p>
+
+                <p></p>
+              <p> 3. PCA with Random Forest Classification</p> 
+              <center><table>
+                <th>Scores</th>
+                <th>PCA Random Forest Classification (max_depth = 10)</th>
+                  <th>(max_depth = 5)</th>
+                  <th>Default</th>
+              
+                  <tr>
+                    <td><center>Training Score</center></td>
+                    <td>0.867136517880449</td>
+                    <td>0.8004437483685721</td>
+                    <td>1.0</td>
+                    
+                  </tr>
+                  <tr>
+                    <td><center>Testing Score</center></td>
+                    <td>0.8189469563515365</td>
+                    <td>0.7997651203758074</td>
+                    <td>0.8232530827950675</td>
+                    
+                  </tr>
+                  
+                  <tr>
+                    <td><center>Delta</center></td>
+                    <td>0.0481895615289130</td>
+                    <td>0.0006786279927649</td>
+                    <td>0.1767469172049330</td>
+                    
+                  </tr>
+  
+                  </table></center>
+                  <p></p>
+                  <p>Third approach to model optimization was to reduce the dimension of data by breaking down the input features into a number of independent factors primarily to remove collinearity issues. After the PCA, Random Forest Classification was used to score our model's test performance. Looking at the testing score with a max depth of 10 across the three model optimization techniques, we see a noticeable decrease in the difference between training score and testing score. By further reducing the dimensions of our input data, we were able to reduce the gap between the training score and the testing score.</p>
+                  
+                  <p></p>
+
+              <p><strong>K-Nearest Neighbor</strong></p>
+                  <p>We set the k-value parameter to tell the algorithm to ﬁnd the k-number of closest known data points. 
+                    Then, the algorithm determines what the majority of surrounding data points are classiﬁed to determine the class of the new data point.
+                    We will determine the best k value in KNN to predict the house value classification
+                  </p>
+
+                  <center><img src="../Images/KNN_plot.PNG" alt="LR image1" height="400" width="550"></center>
+
+                  <p></p>
+                  <p>We notice the test accuracy begins to stabilize at k value of 11. As shown in the Figure above, performance of the test score progressively improved and started to plateau starting at k value of 11. </p>
+                  
+                  <p></p>
+                  <center><table>
+                    <th colspan="2">KNN Prediction</th>
+                    <tr>
+                      <td><center>True</center></td>
+                      <td>5849</td>
+                    </tr>
+                    <tr>
+                      <td><center>False</center></td>
+                      <td>1303</td>
+                    </tr>
+                  </table></center>
+                  <p></p>
+                  <center><img src="../Images/KNN_pred_vs_act.PNG" alt="LR image1" height="250" width="200"></center>
+                  <p>Counts of True and False </p>
+                  <center><img src="../Images/KNN_classification_report.PNG" alt="LR image1" height="200" width="600"></center>
+
         </div>
     </div>
       </div>
