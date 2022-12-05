@@ -108,9 +108,20 @@
                 </tr>
               </table></center>
               <p></p>
-              <p>Preprocessing...</p>
-              <p>Multicollinearity...</p>
+              <p><strong>Preprocessing...</strong></p>
+              <p><strong>Collinearity...</strong></p>
+              <p>A collinearity arises in an instance when two or more variables are highly correlated.
+                when input features in the regression model are highly correlated to each other, it can hurt the interpretability of the modelas the regrssion coefficients subsequently are not unique and have influences from other features. collinearity may also create an overfitting problem.
+                In order to have a more interpretable model, rule of thumb is that we should avoid features that have a very high (R² > 0.8) being contained in the features.
+                
+                We noticed that the following features are highly correlated with each other: 'population', 'bedrooms_per_household', and 'population_per_household'.
+                One can assume population for each block is certainly proportional to the households numbers. In addition, total rooms can certainly be proportional to the number of bedrooms. Thus, a high correlation should be expected.
+                
+                This implies a multicollinearity and takes away from our ability to interpret the beta coefficients from both.
+                We would need to either drop some of these variables or find a way to make them less correlated. This is where PCA comes in to reduce the dimensions and noises that may contain collinear input variables.</p>
+                
               <p><center> <img src="../Images/heatmapofcorrelation.png" height="400" width="775"></center></p>
+              <p><center> <img src="../Images/Log_Reg_Correlation.png" height="400" width="775"></center></p>
               <p>Target Variable...</p>
               <p> <center> <img src="../Images/LongitudevLatitude.png"></center></p>
 

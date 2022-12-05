@@ -60,15 +60,58 @@
         <div class="col-12 col-sm-12 col-md-12">
             <div class="jumbotron">
               <h1><strong>Logistic Regression Algorithm</strong></h1>
-              <center> <img src="image 1" height="300" width="400"></center> 
-              <p><strong>Introduction</strong></p>
-              <p>our description goes here for the Introduction part</p>
-              
-              
-                <center><img src="image2" alt="LR image1"></center>
-              </p>
-              <p>our description for the second image goes here</p>
+              <center><img src="../Images/LogReg_1.png" alt="LR image1" height="300" width="400"></center>
+              <center><table>
+                <p></p>  
+                <th>Classification</th>
+                <th>Bins</th>
+                <tr>
+                  <td><center>0</center></td>
+                  <td>Median House Value greater than $400,000</td>
+                </tr>
+                <tr>
+                  <td><center>1</center></td>
+                  <td>Median House Value between $250,000 and $400,000</td>
+                </tr>
+                <tr>
+                    <td><center>2</center></td>
+                    <td>Median House Value less than $250,000</td>
+                  </tr>
+                
+              </table></center>
+              <p></p>
+              <p>One approach we have taken was Logistic Regression algorithm to predict the range of the median house value which was sorted into three bins or three classes. With the deployment of the Logistic Regression, we were able to not only predict the median house value by looking at the input features but also attain an accuracy of the prediction of each range of the value. </p>
 
+              <p><strong>Classification Report of logistic regression</strong></p>
+              <p> </p>
+              
+              <center><img src="../Images/Log_Reg_training_testing_score.PNG" alt="LR image1" height="300" width="600"></center>
+              </p>
+
+
+              <p>precision is a measure of the reliability of a positive classiﬁcation</p>
+              <!-- next segment -->
+
+              <p><strong>Lasso Regression Model</strong></p>
+              <p>Our first attempt at optimization involves using a Lasso Regression. Due to the high number of features and multicollinearity with our data, the Lasso Regression would provide
+                automated feature selection which we expect to improve accuracy.
+              </p>
+              
+              <center><table>
+                <th colspan="2">Lasso</th>
+                <tr>
+                  <td><center>Training Score</center></td>
+                  <td>0.6387324859582684</td>
+                </tr>
+                <tr>
+                  <td><center>Testing Score</center></td>
+                  <td>0.6536976224112978</td>
+                </tr>
+              </table></center>
+              <!-- <center> <img src="../Images/lassoresidualplot.png" height="300" width="400"></center> -->
+              <p></p>
+              <p>The Lasso Regression ultimately gives nearly identical results to the Linear Regression...
+              </p>
         </div>
     </div>
       </div>
