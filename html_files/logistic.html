@@ -113,12 +113,14 @@
               <center><table>
               <th>Scores</th>
               <th>Random Forest Classification (max_depth = 10)</th>
+              <th>(max_depth = 7.5)</th>
                 <th>(max_depth = 5)</th>
                 <th>Default</th>
             
                 <tr>
                   <td><center>Training Score</center></td>
                   <td>0.9106994955199157</td>
+                  <td>0.8508395452149687</td>
                   <td>0.8138694375423537</td>
                   <td>1.0</td>
                   
@@ -126,6 +128,7 @@
                 <tr>
                   <td><center>Testing Score</center></td>
                   <td>0.8573825503355704</td>
+                  <td>0.832913870246085</td>
                   <td>0.8048098434004475</td>
                   <td>0.8726230425055929</td>
                   
@@ -134,6 +137,7 @@
                 <tr>
                   <td><center>Delta</center></td>
                   <td>0.0533169451843450</td>
+                  <td>0.017925674968883</td>
                   <td>0.0090595941419059</td>
                   <td>0.1273769574944080</td>
                   
@@ -160,7 +164,7 @@
                   <tr>
                     <td><center>Training Score</center></td>
                     <td>0.9030931871574002</td>
-                    <td>0.8508395452149687</td>
+                    <td>0.8537588097102584</td>
                     <td>0.8179979117723832</td>
                     <td>1.0</td>
                     
@@ -168,7 +172,7 @@
                   <tr>
                     <td><center>Testing Score</center></td>
                     <td>0.8535917009199452</td>
-                    <td>0.832913870246085</td>
+                    <td>0.8432178508514386</td>
                     <td>0.816793893129771</td>
                     <td>0.8651399491094147</td>
                     
@@ -177,7 +181,7 @@
                   <tr>
                     <td><center>Delta</center></td>
                     <td>0.0495014862374550</td>
-                    <td>0.017925674968883</td>
+                    <td>0.01054095885882</td>
                     <td>0.0012040186426119</td>
                     <td>0.1348600508905860</td>
                     
@@ -186,12 +190,17 @@
                   </table></center>
                   <p><strong>Table 3.</strong> Feature Selection with Random Forests</p>
                   <p></p>
-                  <p>Second approach to model optimization was to further close the gap between the training set and testing set by identifying feature importance or coefficients of our model and subsequently removing noise or features with less significance such as redundant and/or collinear variables. We can see a slight decrease in the discrepancy between the score of the training set and that of the testing set</p>
+
+                  <center><img src="../Images/Log_Reg_Feature_selection_Random_Forest_score_plot.PNG" alt="LR image1" height="300" width="550"></center>
+                  <p><strong>Figure 3.</strong> Feature Selection based Random Forest Score plot by varying max_depth</p>
+                  
+                  <p></p>
+                  <p>Second approach to model optimization was to further close the gap between the training set and testing set by identifying feature importance or coefficients of our model and subsequently removing noise or features with less significance such as redundant and/or collinear variables. Discrepancy of the training and testing score was reduced to 1.05% while achieving a testing score of 84.32%, a significant improvement of 2.86% over the base model score.</p>
 
                   <p></p>
                   
                   <center><img src="../Images/Log_Reg_Feature_Importance.PNG" alt="LR image1" height="400" width="550"></center>
-                  <p><strong>Figure 3.</strong> Plot demonstrating feature importances</p>
+                  <p><strong>Figure 4.</strong> Plot demonstrating feature importances</p>
                   <p>The Feature Selection technique was used to remove the potential noise, irrelevant or collinear features down to 5 attributes. Random Forest Classification was used to score our model's test performance. Looking at the testing score with a max depth of 10 across the two model optimization techniques, we see a noticeable decrease in the difference between training score and testing score. By further reducing the dimensions of our input data, we were able to reduce the gap between the training score and the testing score by Random Forest Classification.</p>
                   
                   
