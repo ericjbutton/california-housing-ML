@@ -145,7 +145,7 @@
               <center><img src="../Images/Log_Reg_Random_Forest_score_plot.PNG" alt="LR image1" height="300" width="550"></center>
               <p><strong>Figure 2.</strong> Random Forest Score plot by varying max_depth</p>
               <p></p>
-              <p>In an effort to improve the predictive accuracy and our testing score, we have deployed the Random Forest Regressor while tuning parameters to reduce model complexity (i.e. max_depth, tree depth, etc.). As shown in the table above, our model saw a higher testing score of 85.74%, an improvement from our base model, however, we quickly realized our model began to overfit as the depth of our model increased demonstrating an increasing discrepancy of training and testing score. At Default, the trees perfectly predicts all of the train data, however, it fails to generalize the findings for new data. Random forests have many degrees of freedom, so the model can achieve a 100% accuracy of training score or in-sample relatively fast. This leads to an overfitting problem.
+              <p>In an effort to improve the predictive accuracy and our testing score, we have deployed the Random Forest Regressor while tuning parameters to reduce model complexity (i.e. max_depth, tree depth, etc.). As shown in the table above, our model saw a higher testing score of 83.29% and a training score of 85.08% at a max_depth of 7.5, an improvement of 1.83% from our base model score, however, we quickly realized our model began to overfit as the depth of our model increased. At Default, the trees perfectly predicts all of the train data, however, it fails to generalize the findings for new data. Random forests have many degrees of freedom, so the model can achieve a 100% accuracy of training score or in-sample relatively fast. This leads to an overfitting problem.
               </p>
 
               <p><strong>2. Feature Selection with Random Forests</strong></p>
@@ -153,12 +153,14 @@
               <center><table>
                 <th>Scores</th>
                 <th>Random Forest Classification (max_depth = 10)</th>
+                <th>(max_depth = 7.5)</th>
                   <th>(max_depth = 5)</th>
                   <th>Default</th>
               
                   <tr>
                     <td><center>Training Score</center></td>
                     <td>0.9030931871574002</td>
+                    <td>0.8508395452149687</td>
                     <td>0.8179979117723832</td>
                     <td>1.0</td>
                     
@@ -166,6 +168,7 @@
                   <tr>
                     <td><center>Testing Score</center></td>
                     <td>0.8535917009199452</td>
+                    <td>0.832913870246085</td>
                     <td>0.816793893129771</td>
                     <td>0.8651399491094147</td>
                     
@@ -174,6 +177,7 @@
                   <tr>
                     <td><center>Delta</center></td>
                     <td>0.0495014862374550</td>
+                    <td>0.017925674968883</td>
                     <td>0.0012040186426119</td>
                     <td>0.1348600508905860</td>
                     
