@@ -60,9 +60,9 @@
         <div class="col-12 col-sm-12 col-md-12">
             <div class="jumbotron">
               <h1><strong>Logistic Regression Algorithm</strong></h1>
-              <center><img src="../Images/LogReg_1.png" alt="LR image1" height="300" width="400"></center>
+              
 
-              <p> For our Project, we have decided to use Multinomial logistic regression where we have assigned three classifications to the Median Housing Value, categorizing the outputs into three different ranges as shown in Table 1 below.</p>
+              <p> One of the regression models we have decided to use for our Project was Multinomial logistic regression where we have assigned three classifications to the Median Housing Value, categorizing the outputs into three different ranges as shown in Table 1 below.</p>
               <center><table>
                 <p></p>  
                 <th>Classification</th>
@@ -83,7 +83,7 @@
               </table></center>
               <p><strong>Table 1.</strong> Classifications of Median Housing Value in California. From the 1990 Census dataset.</p>
               <p></p>
-              <p>With the deployment of the Logistic Regression, we were able to not only predict the range of the median house value by looking at the Housing dimensions but also attain an accuracy of the prediction of each range of the value and assess at what ranges our model had the strongest performance in predicting the median house value. </p>
+              <p>With the deployment of the Logistic Regression, we were able to not only predict the range of the median house value by looking at different Housing dimensions but also attain a precision of predictions of each range of the value and assess at what ranges our model had the best precision in predicting the median house value. </p>
 
               <p><strong>Classification Report of logistic regression</strong></p>
               <p> </p>
@@ -102,11 +102,11 @@
                 </tr>
               </table></center>
               <p><strong>Table 2.</strong> Testing and Training score from the Base Model</p>
-              <p>Our model had a precision of 78% predicting the median house value greater than $400,000. Whereas 60% precision was reported predicting a median house value between $250,000-400,000. Lastly, 85% precision was seen predicting a median house value of less than $250,000. Our model demonstrated strong performance predicting a house value at the higher and lower end of the range, however, showed acceptable precision predicing mid range values. This validates our observation shown in the Longitude and Latitude plots in the Data section where the median house value in the mid-range was more spread out across the state of California.</p>
+              <p>Our model demonstrated a strong testing score of 81.46% soley from our base model. In addition, the precision or the measure of reliability of predicting the median house value ranges was relatively high. In particular the precision of predicting the median house value greater than $400,000 was 78%. Whereas 60% precision was reported predicting a median house value between $250,000-400,000. Lastly, 85% precision was seen predicting a median house value of less than $250,000. Our model demonstrated strong predictive performance at the higher and lower end of the median house value range, however, showed acceptable precision predicing mid range values. This validates our observation shown in the Longitude and Latitude plots in the Data section where the median house value in the mid-range was more spread out across the state of California.</p>
               <!-- next segment -->
 
               <p><strong>Model Optimizations</strong></p>
-              <p>Given the high Testing Data Score of 81.46% from our base model, it is safe to conclude our model would do a great job generalizing the findings for the new input data. However, we wanted to push the envelope in improving our models while balancing the fitting of our model. Three model optimization techniques were deployed in an attempt to improve the testing score from our current standing.
+              <p>Given the high Testing Data Score of 81.46% from our base model, it is safe to conclude our model would do a great job generalizing the findings for the new input data. However, we wanted to push the envelope in improving our models while balancing the fitting of our model. Two model optimization techniques were deployed in an attempt to improve the testing score from our current standing.
               </p>
               
               <p><strong>1. Random Forest Classification</strong></p>
@@ -180,60 +180,22 @@
                   </tr>
   
                   </table></center>
+                  <p><strong>Table 3.</strong> Feature Selection with Random Forests</p>
                   <p></p>
                   <p>Second approach to model optimization was to find feature importance or coefficients of our model in order to remove noise or features with less significance. We can see a slight decrease in the discrepancy between the score of the training set and that of the testing set</p>
 
                   <p></p>
-                  <p><strong>Case study-training our models with collinear input features and cleaned input features</strong></p>
+                  
                   <center><img src="../Images/Log_Reg_Feature_Importance.PNG" alt="LR image1" height="400" width="550"></center>
+                  <p><strong>Figure 2.</strong> Plot demonstrating feature importances</p>
+                  <p>Feature Selection technique was used to remove the noise, irrelevant or collinear features. With collinear features, the regression models can become confused and the coefficients can vary from their true values. Random Forest Classification was used to score our model's test performance. Looking at the testing score with a max depth of 10 across the two model optimization techniques, we see a noticeable decrease in the difference between training score and testing score. By further reducing the dimensions of our input data, we were able to reduce the gap between the training score and the testing score by Random Forest Classification.</p>
                   
-                  <p>Plot demonstrating different feature importances. Features including the collinear variables were intentionally selected to showcase that the models can become inefficient by an overabundance of features, creating an unwanted ﬁt to the noise of irrelevant features. In this Plot, correlated features are given equal or similar importance, but overall reduced importance compared to the same tree built without correlated counterparts.</p>
-                  <center><img src="../Images/arrow.PNG" alt="LR image1" height=100" width="100"></center>
                   
-                  <center><img src="../Images/Log_Reg_Feature_Importance2.PNG" alt="LR image1" height="400" width="550"></center>
-                  <p>Plot demonstrating feature importances after removing collinear attributes.</p>
-                  <p></p>
+                  
+                
+        
 
           
-
-                <p></p>
-              <p><strong> 3. PCA with Random Forest Classification</strong></p> 
-              
-              <center><table>
-                <th>Scores</th>
-                <th>PCA Random Forest Classification (max_depth = 10)</th>
-                  <th>(max_depth = 5)</th>
-                  <th>Default</th>
-              
-                  <tr>
-                    <td><center>Training Score</center></td>
-                    <td>0.854868180631688</td>
-                    <td>0.799334377447141</td>
-                    <td>1.0</td>
-                    
-                  </tr>
-                  <tr>
-                    <td><center>Testing Score</center></td>
-                    <td>0.816793893129771</td>
-                    <td>0.797024858093560</td>
-                    <td>0.809356038363672</td>
-                    
-                  </tr>
-                  
-                  <tr>
-                    <td><center>Delta</center></td>
-                    <td>0.038074287501917</td>
-                    <td>0.00230951935358092</td>
-                    <td>0.190643961636328</td>
-                    
-                  </tr>
-  
-                  </table></center>
-                  <p><strong>Table 5.</strong> PCA with Random Forest Classification.</p>
-                
-
-                  <p></p>
-                  <p>With collinear features, the regression models can become confused and the coefficients can vary from their true values. we have taken a third approach to model optimization to reduce the dimension of the data by breaking down the input features into a number of independent factors primarily to remove collinearity issues. After the PCA, Random Forest Classification was used to score our model's test performance. Looking at the testing score with a max depth of 10 across the three model optimization techniques, we see a noticeable decrease in the difference between training score and testing score. By further reducing the dimensions of our input data, we were able to reduce the gap between the training score and the testing score.</p>
                   
                   <p></p>
 
