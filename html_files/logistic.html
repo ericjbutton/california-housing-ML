@@ -145,7 +145,7 @@
               <center><img src="../Images/Log_Reg_Random_Forest_score_plot.PNG" alt="LR image1" height="300" width="550"></center>
               <p><strong>Figure 2.</strong> Random Forest Score plot by varying max_depth</p>
               <p></p>
-              <p>In an effort to improve the predictive accuracy and our testing score, we have deployed the Random Forest Classifier. As shown in the table above, our model saw a higher testing score of 85.74%, however, we quickly realized our model began to overfit as the depth of our model increased showing a discrepancy of training and testing score of 5.33% which is still an acceptable difference in the real world. At Default, the trees perfectly predicts all of the train data, however, it fails to generalize the findings for new data. 
+              <p>In an effort to improve the predictive accuracy and our testing score, we have deployed the Random Forest Regressor while tuning parameters to reduce model complexity (i.e. max_depth, tree depth, etc.). As shown in the table above, our model saw a higher testing score of 85.74%, an improvement from our base model, however, we quickly realized our model began to overfit as the depth of our model increased demonstrating an increasing discrepancy of training and testing score. At Default, the trees perfectly predicts all of the train data, however, it fails to generalize the findings for new data. Random forests have many degrees of freedom, so the model can achieve a 100% accuracy of training score or in-sample relatively fast. This leads to an overfitting problem.
               </p>
 
               <p><strong>2. Feature Selection with Random Forests</strong></p>
