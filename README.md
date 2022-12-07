@@ -28,8 +28,17 @@
   - Host to GitHub Pages 
 - Project Track : <u>_Research_</u>
 
+## <u>**Instructions**</u>
 
-
+1. `html_files` folder contains all the files related to our website.
+1. `Images` folder contains all the images we used for our website and also the graphs we generated from our jupyter notebook.
+1. All our jupyter notebooks contain the preprocessing work that we did before running the models.
+1. `base_model.ipynb` contains code for our base model.
+1. `Logistic_Regression.ipynb` is a jupyter notebook for modeling using logistic regression.
+1. `randomforestregressormodel.ipynb` is a jupyter notebook for modeling using random forest regression model.
+1. `regularized_regression_models.ipynb` is a jupyter notebook for modeling using linear regression.
+1. `README.md` is the file you're currently viewing that summarizes this repo.
+1. `housing.csv` contains the dataset that we used for this project.
 
 ## <u>**Website for this Repo:**</u>
 
